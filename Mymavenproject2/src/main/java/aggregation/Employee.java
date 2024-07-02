@@ -4,7 +4,7 @@ public class Employee {
 int id;
 String name;
 
-Address address;//1st class's reference object is created inside second class as a instance variable.
+Address address;//1st class's reference object is created inside second class as an instance variable.
 
 Employee(int id,String name,Address address)
 {
