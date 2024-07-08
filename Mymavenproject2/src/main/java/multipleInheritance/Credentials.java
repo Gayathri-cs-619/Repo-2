@@ -1,4 +1,4 @@
-package interfaces;
+package multipleInheritance;
 
 public interface Credentials {
 void username();

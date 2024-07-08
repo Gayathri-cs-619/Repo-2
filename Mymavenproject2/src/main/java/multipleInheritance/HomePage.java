@@ -1,4 +1,4 @@
-package interfaces;
+package multipleInheritance;
 
 public class HomePage implements Login,Credentials{
 

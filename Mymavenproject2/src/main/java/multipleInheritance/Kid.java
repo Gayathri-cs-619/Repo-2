@@ -11,3 +11,5 @@ public class Kid implements Father, Mother {
 		obj.gender();
 	}
 }
+//if parent class methods have same name, cant implement both methods .  Remember that multiple inheritance
+//purpose is to get functions from both parents.

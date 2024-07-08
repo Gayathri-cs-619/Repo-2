@@ -4,6 +4,8 @@ public abstract class Animal {
 	
 	abstract void run();//abstract methods do not specify a body
 	
+	int a =5;
+	
 	public void jump()
 	{
 		System.out.println("Jumping");
