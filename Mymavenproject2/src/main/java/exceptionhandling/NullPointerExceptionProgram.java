@@ -31,13 +31,17 @@ public class NullPointerExceptionProgram {
 			{
 				System.out.println("Strings are NOT same");
 			}
-			System.out.println(str);//THIS STMT DIDNT RUN. "IF" LOOP Will get exited , but shudnt this run???
+			//System.out.println(str);//THIS STMT DIDNT RUN. "IF" LOOP Will get exited , but shudnt this run???
+			//It didnt run as its inside the try block. You should have kept it outside.
+			//here, try block encounters exception and goes to catch block.
 		}
 		catch(NullPointerException e)
 		{
 			System.out.println(e);	
 			System.out.println("Exception Handled");
+		
 		}
+		
 	}
 
 }
