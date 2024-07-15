@@ -31,9 +31,15 @@ public class ExcelRead {
 					
 	}
 	
-	public static void getIntegerData(int a,int b)
+	public static String getIntegerData(int a,int b) throws IOException
 	{
-		
+		f=new FileInputStream("D:\\Java Session\\ExcelData1.xlsx");//go to excel location
+		w= new XSSFWorkbook(f);//open workbook
+		sh=w.getSheet("sheet1");//get sheet 
+		XSSFRow r=sh.getRow(a);//get row
+		Cell c=r.getCell(b);//get cell
+		int x=(int) c.getNumericCellValue();//typecasting. string converted to int.
+		return String.valueOf(x);//valueOf - to read integer as string.
 	}
 
 }

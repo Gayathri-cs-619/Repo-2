@@ -9,7 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Students {
-	static FileInputStream f;//why are defining as static?
+	static FileInputStream f;//we can give as static.
 	static XSSFWorkbook w;
 	static XSSFSheet sh;
 	
