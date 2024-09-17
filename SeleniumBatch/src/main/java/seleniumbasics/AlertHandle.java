@@ -12,6 +12,7 @@ public class AlertHandle {
 		driver.get("https://selenium.qabible.in/javascript-alert.php");
 		driver.manage().window().maximize();
 		
+		
 		WebElement clickMeAlert=driver.findElement(By.xpath("//button[@class='btn btn-success']"));
 		
 		clickMeAlert.click();
