@@ -1,0 +1,20 @@
+<suite name="myTestSuite">
+	<test name="myTest">
+		<groups>
+			<run>
+				<!-- <include name="smoke"></include>-->
+				<exclude name="smoke"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="basicTestNG.BasicAnnotation"></class>
+			<class name="basicTestNG.BasicTestNG"></class>
+			<class name="basicTestNG.BeforeAndAfterAnnotation"></class>
+			<class name="basicTestNG.DataProviderTest"></class>
+			<class name="basicTestNG.DataPT"></class>
+		</classes>
+	</test>
+
+
+</suite>
+
