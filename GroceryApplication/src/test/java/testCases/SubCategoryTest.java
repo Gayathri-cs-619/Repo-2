@@ -26,22 +26,22 @@ public class SubCategoryTest extends BaseClass {
 		scp.entersubCategoryText();
 		scp.clickSubCategorySave();
 		// scp.subCategorySaveStatus();
-		Assert.assertEquals(scp.subCategorySaveStatus(), true, "Pass");// how to handle already exist case? now it will
-																		// show assertion error
+		Assert.assertEquals(scp.subCategorySaveStatus(), true, "Add failure");
+		hp.clickSubCategoryLink();
+		Assert.assertEquals(scp.findCategoryTableNewValue(), true, "Cant find the added value");
+																		
 
 	}
 	
 	@Test(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class)
-	public void verifyfindCategoryTableNewValue(String userName, String password) {
+	public void deleteCategoryTableNewValue(String userName, String password) {
 
 		lp = new LoginPage(driver);
 		hp = new HomePage(driver);
 		scp = new SubCategoryPage(driver);
 		lp.loginwithValidCredentials(userName, password);
 		hp.clickSubCategoryLink();
-		boolean s=scp.findCategoryTableNewValue();
-		System.out.println(s);
-	
+		scp.deleteSubCategory();//need to make it per the added element. how can we find the added element between 2 tests?
 		
 
 	}

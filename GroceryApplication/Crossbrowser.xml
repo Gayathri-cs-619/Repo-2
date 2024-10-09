@@ -1,0 +1,17 @@
+<suite name="GroceryApplication">
+	<test name="chromeTest">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="testCases.LoginPageTest"></class>
+			<class name="testCases.HomePageTest"></class>
+		</classes>
+	</test>
+	<test name="firefoxTest">
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="testCases.LoginPageTest"></class>
+			<class name="testCases.HomePageTest"></class>
+		</classes>
+	</test>
+</suite>
+

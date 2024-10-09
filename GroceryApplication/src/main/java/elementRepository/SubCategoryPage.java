@@ -11,8 +11,8 @@ public class SubCategoryPage {
 	WebDriver driver;
 	GeneralUtilities genUtility = new GeneralUtilities();
 
-	String subCategoryActualValue = "678996";
-
+	String subCategoryValue;
+	
 	public SubCategoryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -32,9 +32,11 @@ public class SubCategoryPage {
 	WebElement subCategorySaveSuccessAlert;
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	WebElement subCategorySaveFailureAlert;
-	@FindBy(xpath = "//table/tbody/tr[1]/td[1]']")
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[1]/td[1]")
 	WebElement categoryTableCol1;
-
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[1]/td[5]/a[2]")
+	WebElement categoryDeleteButton;
+	
 	public void clickNewButton() {
 
 		newButton.click();
@@ -46,8 +48,10 @@ public class SubCategoryPage {
 	}
 
 	public void entersubCategoryText() {
-
-		genUtility.sendKeyFunction(subCategoryText, subCategoryActualValue);
+		String subCategoryValue="678996"+genUtility.randon(1000);
+		this.subCategoryValue=subCategoryValue;
+		genUtility.sendKeyFunction(subCategoryText, subCategoryValue);
+		
 	}
 
 	public void clickSubCategorySave() {
@@ -74,8 +78,8 @@ public class SubCategoryPage {
 	public boolean findCategoryTableNewValue() {
 
 		String subCategoryDerivedValue = categoryTableCol1.getText();
-		System.out.println(subCategoryDerivedValue);
-		if (subCategoryDerivedValue.equals(subCategoryActualValue))
+		
+		if (subCategoryDerivedValue.equals(this.subCategoryValue))
 
 			return true;
 
@@ -84,6 +88,11 @@ public class SubCategoryPage {
 	}
 
 	
+	public void deleteSubCategory() {
+
+		categoryDeleteButton.click();
+		genUtility.alertAccept(driver);
+	}
 
 	
 }
