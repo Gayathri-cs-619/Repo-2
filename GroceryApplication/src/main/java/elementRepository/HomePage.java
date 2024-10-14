@@ -21,6 +21,10 @@ public class HomePage {
 	WebElement heading;
 	@FindBy(xpath = "//nav/ul/li/a/p[text()='Sub Category']")
 	WebElement subCategoryLink;
+	@FindBy(xpath = "//div[@class='small-box bg-info']/a[@href='https://groceryapp.uniqassosiates.com/admin/list-product']")
+	WebElement manageProductLink;
+	@FindBy(xpath = "//div[@class='small-box bg-info']/a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")
+	WebElement manageCategoryLink;
 
 	public String readHeading() {
 		return heading.getText();
@@ -29,6 +33,18 @@ public class HomePage {
 	public void clickSubCategoryLink() {
 
 		subCategoryLink.click();
+
+	}
+	
+	public void clickManageProductLink() {
+
+		manageProductLink.click();
+
+	}
+	
+	public void clickManageCategoryLink() {
+
+		manageCategoryLink.click();
 
 	}
 

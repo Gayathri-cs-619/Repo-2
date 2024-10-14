@@ -1,11 +1,14 @@
 package elementRepository;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.ExcelUtility;
 import utilities.GeneralUtilities;
 
 public class LoginPage {
@@ -30,6 +33,16 @@ public class LoginPage {
 	WebElement loginButton;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	WebElement invalidUserAlert;
+	
+	public String loginUser(int row, int col) throws IOException 
+	{
+		return ExcelUtility.getStringData(row,col);
+	}
+	
+	public String loginPassWord(int row, int col) throws IOException 
+	{
+		return ExcelUtility.getStringData(row,col);
+	}
 
 	public void loginwithValidCredentials(String userName, String password) {
 		gu.sendKeyFunction(userNameField, userName);

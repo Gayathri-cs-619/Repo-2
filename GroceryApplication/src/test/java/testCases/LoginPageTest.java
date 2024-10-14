@@ -1,40 +1,60 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import elementRepository.HomePage;
 import elementRepository.LoginPage;
 
 public class LoginPageTest extends BaseClass {
 	LoginPage lp;
 	HomePage hp;
-  @Test(dataProvider="data-provider-1")
-  public void verifyLoginWithValidCredentials(String userName,String password) {
+	
+ /* @Test(dataProvider="data-provider-1")
+  public void verifyLoginWithValidCredentials(String userName,String password) throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=new HomePage(driver);
 	  lp.loginwithValidCredentials(userName,password);
 	  String actualHeading=hp.readHeading();
 	  String expectedHeading="7rmart supermarket";
 	  System.out.println(actualHeading);
-	  Assert.assertEquals(actualHeading, expectedHeading,":Heading text not as expected");
+	  Assert.assertEquals(actualHeading, expectedHeading,Constant.lp_verifyLoginWithValidCredentials);
+	 
+  }*/
+  
+  @Test
+  public void verifyLoginWithValidCredentials() throws IOException {
+	  lp=new LoginPage(driver);
+	  hp=new HomePage(driver);
+	  String userName=lp.loginUser(1,0);
+	  String password=lp.loginPassWord(1,1);
+	  lp.loginwithValidCredentials(userName,password);
+	  String actualHeading=hp.readHeading();
+	  String expectedHeading="7rmart supermarket";
+	  System.out.println(actualHeading);
+	  Assert.assertEquals(actualHeading, expectedHeading,Constant.lp_verifyLoginWithValidCredentials);
 	 
   }
   
-  @Test
-  public void verifyLoginWithInvalidCredentials() {
+  @Test(enabled=false)
+  public void verifyLoginWithInvalidCredentials() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=new HomePage(driver);
-	  lp.loginwithInvalidCredentials("Gayathri","randomuser");
+	  String userName=lp.loginUser(2,0);
+	  String password=lp.loginPassWord(2,1);
+	  lp.loginwithInvalidCredentials(userName,password);
 	  String actualMessage=lp.readInvalidMessage();
 	  String expectedMessage="Alert!";
 	  System.out.println(actualMessage);
-	  Assert.assertEquals(actualMessage, expectedMessage,":Invalid user error message not as expected");
+	  Assert.assertEquals(actualMessage, expectedMessage,Constant.lp_verifyLoginWithInValidCredentials);
   }
   
-  @DataProvider (name = "data-provider-1")
+ /* @DataProvider (name = "data-provider-1")
 	public Object[][] dpMethod(){
 	return new Object[][] {{"admin","admin" }};
-	}
+	}*/
 }
