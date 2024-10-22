@@ -30,8 +30,8 @@ public class LoginPageTest extends BaseClass {
   public void verifyLoginWithValidCredentials() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=new HomePage(driver);
-	  String userName=lp.loginUser(1,0);
-	  String password=lp.loginPassWord(1,1);
+	  String userName=loginData(1,0);
+	  String password=loginData(1,1);
 	  lp.loginwithValidCredentials(userName,password);
 	  String actualHeading=hp.readHeading();
 	  String expectedHeading="7rmart supermarket";
@@ -44,8 +44,8 @@ public class LoginPageTest extends BaseClass {
   public void verifyLoginWithInvalidCredentials() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=new HomePage(driver);
-	  String userName=lp.loginUser(2,0);
-	  String password=lp.loginPassWord(2,1);
+	  String userName=loginData(2,0);
+	  String password=loginData(2,1);
 	  lp.loginwithInvalidCredentials(userName,password);
 	  String actualMessage=lp.readInvalidMessage();
 	  String expectedMessage="Alert!";
@@ -53,8 +53,8 @@ public class LoginPageTest extends BaseClass {
 	  Assert.assertEquals(actualMessage, expectedMessage,Constant.lp_verifyLoginWithInValidCredentials);
   }
   
- /* @DataProvider (name = "data-provider-1")
+  @DataProvider (name = "data-provider-1")
 	public Object[][] dpMethod(){
 	return new Object[][] {{"admin","admin" }};
-	}*/
+	}
 }

@@ -14,9 +14,9 @@ public class ExcelUtility
 	static XSSFWorkbook w;
 	static XSSFSheet sh;
 	
-	public static String getStringData(int a,int b) throws IOException
+	public static String getStringData(String path,int a,int b) throws IOException
 	{
-		f=new FileInputStream("D:\\Java Session\\LoginData.xlsx");//go to excel location
+		f=new FileInputStream(path);//go to excel location
 		w= new XSSFWorkbook(f);//open workbook
 		sh=w.getSheet("sheet1");//get sheet 
 				//getSheet method is XSSFSheet class 
@@ -28,9 +28,9 @@ public class ExcelUtility
 					
 	}
 	
-	public static String getIntegerData(int a,int b) throws IOException
+	public static String getIntegerData(String path,int a,int b) throws IOException
 	{
-		f=new FileInputStream("D:\\Java Session\\LoginData.xlsx");//go to excel location
+		f=new FileInputStream(path);//go to excel location
 		w= new XSSFWorkbook(f);//open workbook
 		sh=w.getSheet("sheet1");//get sheet 
 		XSSFRow r=sh.getRow(a);//get row

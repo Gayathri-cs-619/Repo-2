@@ -1,5 +1,11 @@
 package utilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +13,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Set;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -146,5 +153,45 @@ public class GeneralUtilities {
 		}
 	}
 	
+	public void fileUploadbySendKeys(WebDriver driver, WebElement element,String filePath)
+	{
+		element.sendKeys(filePath); 
+	}
+	
+	public void fileUploadbyRobotClass(WebDriver driver, WebElement element,Transferable filePath) throws AWTException
+	{
+	Actions obj = new Actions(driver); 
+		obj.moveToElement(element).click().perform(); 
+
+		// Use the Robot class to interact with the file dialog 
+		Robot robot = new Robot(); 
+
+		// Set the clipboard with the file path 
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null); 
+
+		// Use the keyboard shortcuts to paste the file path into the file dialog 
+		robot.keyPress(KeyEvent.VK_CONTROL); 
+		robot.delay(2000);
+		robot.keyPress(KeyEvent.VK_V); 
+		robot.delay(2000);
+		robot.keyRelease(KeyEvent.VK_V); 
+		robot.delay(2000);
+		robot.keyRelease(KeyEvent.VK_CONTROL); 
+		robot.delay(2000);
+
+		// Press Enter to confirm the file upload 
+		robot.keyPress(KeyEvent.VK_ENTER); 
+		robot.delay(2000);
+		robot.keyRelease(KeyEvent.VK_ENTER); 
+		robot.delay(2000);
+
+		// Wait for a moment to ensure the file is uploaded 
+		//Thread.sleep(2000); 
+	}
+	
+	public void scrollFunction(WebDriver driver,int horizontal, int vertical) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy("+horizontal+","+vertical+")");
+	}
 	
 }

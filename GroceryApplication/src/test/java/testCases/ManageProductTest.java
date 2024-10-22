@@ -19,8 +19,8 @@ public class ManageProductTest extends BaseClass{
 	  lp=new LoginPage(driver);
 	  hp=new HomePage(driver);
 	  mp=new ManageProductPage(driver);
-	  String userName=lp.loginUser(1,0);
-	  String password=lp.loginPassWord(1,1);
+	  String userName=loginData(1,0);
+	  String password=loginData(1,1);
 	  lp.loginwithValidCredentials(userName,password);
 	  hp.clickManageProductLink();
 	  boolean foundProduct = mp.changeStockLevel("Carrot");

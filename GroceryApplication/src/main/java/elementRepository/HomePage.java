@@ -23,7 +23,7 @@ public class HomePage {
 	WebElement subCategoryLink;
 	@FindBy(xpath = "//div[@class='small-box bg-info']/a[@href='https://groceryapp.uniqassosiates.com/admin/list-product']")
 	WebElement manageProductLink;
-	@FindBy(xpath = "//div[@class='small-box bg-info']/a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")
+	@FindBy(xpath = "//p[text()='Manage Category']")
 	WebElement manageCategoryLink;
 
 	public String readHeading() {

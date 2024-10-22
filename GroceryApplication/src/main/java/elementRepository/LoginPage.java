@@ -33,16 +33,6 @@ public class LoginPage {
 	WebElement loginButton;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	WebElement invalidUserAlert;
-	
-	public String loginUser(int row, int col) throws IOException 
-	{
-		return ExcelUtility.getStringData(row,col);
-	}
-	
-	public String loginPassWord(int row, int col) throws IOException 
-	{
-		return ExcelUtility.getStringData(row,col);
-	}
 
 	public void loginwithValidCredentials(String userName, String password) {
 		gu.sendKeyFunction(userNameField, userName);

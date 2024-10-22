@@ -10,4 +10,6 @@ public class Constant {
 	public static final String mp_findProductFailure=":No such product in table";
 	public static final String mp_ProductStatusChangeAlert=":Product Status Change Alert didnt appear as expected";
 	public static final String mcp_addNewCategoryAlert=":Category Add Not Success";
+	public static final String mcp_deleteSpecificCategoryAlert=":Category Delete Not Success";
+	public static final String mcp_updateSpecificCategoryAlert=":Category Update Not Success";
 }
