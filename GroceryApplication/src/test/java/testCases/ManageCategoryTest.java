@@ -63,9 +63,7 @@ public class ManageCategoryTest extends BaseClass {
 		mcp.selectGroup();
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\uploadFiles\\PIC.jpg"	;
 		mcp.uploadFile(filePath);
-		Thread.sleep(2000);
 		mcp.scrolltoLocation(334,10000);
-		Thread.sleep(2000);//this step is key to scroll success
 		mcp.clickSave();
 		String alertActual = mcp.checkCategoryAddSuccess();
 		String alertExpected = "Category Created Successfully";
@@ -75,9 +73,7 @@ public class ManageCategoryTest extends BaseClass {
 		hp.clickManageCategoryLink();
 		mcp.editSpecificCategory();
 		mcp.editCategoryValue();
-		Thread.sleep(2000);
 		mcp.scrolltoLocation(334,10000);
-		Thread.sleep(2000);//this step is key to scroll success
 		mcp.clickUpdate();
 		boolean updateAlertPresence=mcp.checkForUpdateSuccessMessage();
 		Assert.assertEquals(updateAlertPresence, true, Constant.mcp_updateSpecificCategoryAlert);

@@ -3,6 +3,7 @@ package utilities;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,9 +25,19 @@ public class WaitUtility {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(milliseconds));
 	}
 
-	public void explicitWaitForWebElementAlert(WebDriver driver) {
+	public void explicitWaitForAlert(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.alertIsPresent());
+	}
+	
+	public void explicitWaitForWebElement(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public void explicitWaitForWebElementtobeVisible(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	public void explicitWaitForWebElementWithAttribute(WebDriver driver, WebElement element, String attribute,

@@ -35,7 +35,7 @@ public class LoginPage {
 	WebElement invalidUserAlert;
 
 	public void loginwithValidCredentials(String userName, String password) {
-		gu.sendKeyFunction(userNameField, userName);
+		gu.sendKeyFunctionforString(userNameField, userName);
 		// userNameField.sendKeys(userName);
 		passwordField.sendKeys(password);
 		loginButton.click();

@@ -25,6 +25,8 @@ public class HomePage {
 	WebElement manageProductLink;
 	@FindBy(xpath = "//p[text()='Manage Category']")
 	WebElement manageCategoryLink;
+	@FindBy(xpath = "//li/a/p[text()='Manage Contact'][1]")
+	WebElement manageContactLink;
 
 	public String readHeading() {
 		return heading.getText();
@@ -35,16 +37,22 @@ public class HomePage {
 		subCategoryLink.click();
 
 	}
-	
+
 	public void clickManageProductLink() {
 
 		manageProductLink.click();
 
 	}
-	
+
 	public void clickManageCategoryLink() {
 
 		manageCategoryLink.click();
+
+	}
+
+	public void clickManageContactLink() {
+
+		manageContactLink.click();
 
 	}
 

@@ -47,6 +47,8 @@ public class ManageCategoryPage {
 	WebElement categoryUpdateButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement categoryUpdateSuccessAlertMessage;
+	@FindBy (xpath="//footer[@class='main-footer text-sm']")
+	WebElement footer;
 
 	public void clickNewCategoryButton() {
 		newCategoryButton.click();
@@ -54,7 +56,7 @@ public class ManageCategoryPage {
 
 	public void enterCategory() {
 		CategoryValue = "NewCategory" + genUtility.generateCurrentDateAndTime();
-		genUtility.sendKeyFunction(categoryField, CategoryValue);
+		genUtility.sendKeyFunctionforString(categoryField, CategoryValue);
 	}
 
 	public void selectGroup() {
@@ -66,7 +68,8 @@ public class ManageCategoryPage {
 		genUtility.fileUploadbySendKeys(driver, chooseImageButton, filePath);
 	}
 
-	public void clickSave() {
+	public void clickSave() throws InterruptedException {
+		w.implicitWaitForSeconds(driver, 3);
 		categorySaveButton.click();
 	}
 
@@ -77,7 +80,7 @@ public class ManageCategoryPage {
 	public void scrolltoLocation(int hori, int vert) throws InterruptedException {
 		// w.implicitWaitForSeconds(driver, 3);
 		genUtility.scrollFunction(driver, hori, vert);
-		// w.implicitWaitForSeconds(driver, 3);
+		w.explicitWaitForWebElementtobeVisible(driver,footer);
 	}
 
 	public void deleteSpecificCategory() throws InterruptedException {
@@ -115,7 +118,7 @@ public class ManageCategoryPage {
 
 	public void editCategoryValue() {
 		String originalCategoryValue=categoryField.getText();
-		genUtility.sendKeyFunction(categoryField, originalCategoryValue.concat("-edited"));
+		genUtility.sendKeyFunctionforString(categoryField, originalCategoryValue.concat("-edited"));
 		
 	}
 	

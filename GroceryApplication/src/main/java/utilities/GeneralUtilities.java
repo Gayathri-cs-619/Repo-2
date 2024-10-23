@@ -28,8 +28,12 @@ public class GeneralUtilities {
 		return selectedElement.getText();
 	}
 
-	public void sendKeyFunction(WebElement element, String value) {
+	public void sendKeyFunctionforString(WebElement element, String value) {
 		element.sendKeys(value);
+	}
+	
+	public void sendKeyFunctionforInt(WebElement element, int value) {
+		element.sendKeys(String.valueOf(value));
 	}
 
 	public void alertAccept(WebDriver driver) {

@@ -76,7 +76,7 @@ public class SubCategoryPage {
 		//genUtility.dropDownselectionByValue(categoryDropdownInSearchPage, category);
 		genUtility.dropDownselectionByVisibleText(categoryDropdownInSearchPage, category);
 		
-		genUtility.sendKeyFunction(subCategoryFieldInSearchPage, subCategory);
+		genUtility.sendKeyFunctionforString(subCategoryFieldInSearchPage, subCategory);
 		subCategorySearchButton.click();
 
 		if (subCategoryResultBody.getText().contains("RESULT NOT FOUND"))
@@ -95,7 +95,7 @@ public class SubCategoryPage {
 	public void entersubCategoryText() {
 		String subCategoryValue="678996"+genUtility.randon(1000);
 		this.subCategoryValue=subCategoryValue;
-		genUtility.sendKeyFunction(subCategoryText, subCategoryValue);
+		genUtility.sendKeyFunctionforString(subCategoryText, subCategoryValue);
 		
 	}
 

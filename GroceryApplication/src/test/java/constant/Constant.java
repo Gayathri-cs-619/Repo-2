@@ -12,4 +12,7 @@ public class Constant {
 	public static final String mcp_addNewCategoryAlert=":Category Add Not Success";
 	public static final String mcp_deleteSpecificCategoryAlert=":Category Delete Not Success";
 	public static final String mcp_updateSpecificCategoryAlert=":Category Update Not Success";
+	public static final String mcontactp_getHeader=":Contact page header doesn't match";
+	public static final String mcontactp_verifyManageContactPageTable=":Contact page table header values not as expected";
+	public static final String mcontactp_verifyContactRecords=":No contact records";
 }

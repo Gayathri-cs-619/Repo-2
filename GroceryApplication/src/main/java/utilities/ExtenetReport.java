@@ -17,9 +17,9 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtenetReport implements ITestListener {
-	ExtentSparkReporter sparkReporter;
-	ExtentReports reports;
-	ExtentTest test;
+	ExtentSparkReporter sparkReporter;//configure html report
+	ExtentReports reports;//manage report
+	ExtentTest test; //log report (pass/fail/skip)
 
 	public void configureReport() {
 		Date date = new Date();
@@ -36,11 +36,11 @@ public class ExtenetReport implements ITestListener {
 		reports = new ExtentReports();
 		reports.attachReporter(sparkReporter);
 
-		reports.setSystemInfo("Project", "Parcel Web");
-		reports.setSystemInfo("PC Name", "Akhil's PC");
+		reports.setSystemInfo("Project", "Grocery Application");
+		reports.setSystemInfo("PC Name", "Gayathri's PC");
 		reports.setSystemInfo("OS", "Windows 11");
-		reports.setSystemInfo("Test Done By", "Akhil Sathyan");		
-		sparkReporter.config().setDocumentTitle("BEO-Parcel Report ");
+		reports.setSystemInfo("Test Done By", "Gayathri Sobhanan");		
+		sparkReporter.config().setDocumentTitle("Grocery Application Report ");
 		sparkReporter.config().setReportName("Report Summary");
 		sparkReporter.config().setTheme(Theme.STANDARD);
 	}	
