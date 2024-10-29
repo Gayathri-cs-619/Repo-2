@@ -27,17 +27,15 @@ public class ManageCategoryTest extends BaseClass {
 	@Test(enabled=false)
 	public void addNewCategory() throws IOException, InterruptedException {
 		lp = new LoginPage(driver);
-		hp = new HomePage(driver);
-		mcp = new ManageCategoryPage(driver);
-		lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
-		hp.clickManageCategoryLink();
+		hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+		mcp=hp.clickManageCategoryLink();
 		mcp.clickNewCategoryButton();
 		mcp.enterCategory();
 		mcp.selectGroup();
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\uploadFiles\\PIC.jpg"	;
 		mcp.uploadFile(filePath);
 		Thread.sleep(2000);
-		mcp.scrolltoLocation(334,10000);
+		//mcp.scrolltoLocation(334,10000);
 		Thread.sleep(2000);//this step is key to scroll success
 		mcp.clickSave();
 		String alertActual = mcp.checkCategoryAddSuccess();
@@ -54,16 +52,15 @@ public class ManageCategoryTest extends BaseClass {
 	@Test
 	public void editNewCategory() throws IOException, InterruptedException {
 		lp = new LoginPage(driver);
-		hp = new HomePage(driver);
 		mcp = new ManageCategoryPage(driver);
-		lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
+		hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
 		hp.clickManageCategoryLink();
 		mcp.clickNewCategoryButton();
 		mcp.enterCategory();
 		mcp.selectGroup();
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\uploadFiles\\PIC.jpg"	;
 		mcp.uploadFile(filePath);
-		mcp.scrolltoLocation(334,10000);
+		//mcp.scrolltoLocation(334,10000);
 		mcp.clickSave();
 		String alertActual = mcp.checkCategoryAddSuccess();
 		String alertExpected = "Category Created Successfully";
@@ -73,7 +70,6 @@ public class ManageCategoryTest extends BaseClass {
 		hp.clickManageCategoryLink();
 		mcp.editSpecificCategory();
 		mcp.editCategoryValue();
-		mcp.scrolltoLocation(334,10000);
 		mcp.clickUpdate();
 		boolean updateAlertPresence=mcp.checkForUpdateSuccessMessage();
 		Assert.assertEquals(updateAlertPresence, true, Constant.mcp_updateSpecificCategoryAlert);

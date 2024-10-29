@@ -17,12 +17,8 @@ public class ManageProductTest extends BaseClass{
   @Test
   public void changeStockStatus() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  mp=new ManageProductPage(driver);
-	  String userName=loginData(1,0);
-	  String password=loginData(1,1);
-	  lp.loginwithValidCredentials(userName,password);
-	  hp.clickManageProductLink();
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mp=hp.clickManageProductLink();
 	  boolean foundProduct = mp.changeStockLevel("Carrot");
 	  Assert.assertEquals(foundProduct, true, Constant.mp_findProductFailure);
 	  if (foundProduct==true)

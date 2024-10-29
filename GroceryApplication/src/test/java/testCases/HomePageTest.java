@@ -14,8 +14,7 @@ public class HomePageTest extends BaseClass{
   public void clickSubCategoryLink(String userName,String password) {
 	  
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  lp.loginwithValidCredentials(userName,password);
+	  hp=lp.performLogin(userName,password);
 	  hp.clickSubCategoryLink();
 	  
   }

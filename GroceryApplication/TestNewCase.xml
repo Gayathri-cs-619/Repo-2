@@ -2,10 +2,11 @@
 	<test name="chromeTest">
 	<listeners>
 	<listener class-name="utilities.ExtenetReport">	</listener>
+	<!--<listener class-name="utilities.RetryListener">	</listener>-->
 	</listeners>
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testCases.ManageContactTest"></class>
+			<class name="testCases.ManageCategoryTest"></class>
 		</classes>
 	</test>
 </suite>

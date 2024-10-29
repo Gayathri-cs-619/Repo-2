@@ -34,21 +34,16 @@ public class LoginPage {
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	WebElement invalidUserAlert;
 
-	public void loginwithValidCredentials(String userName, String password) {
+	public HomePage performLogin(String userName, String password) {
 		gu.sendKeyFunctionforString(userNameField, userName);
-		// userNameField.sendKeys(userName);
 		passwordField.sendKeys(password);
 		loginButton.click();
+		return new HomePage(driver);
+		//returning an object for HomePage, like hp. return type of that object is HomePage [HomePage hp=new HomePage();]like String 
 	}
 
 	public String readInvalidMessage() {
 		return invalidUserAlert.getText();
-	}
-
-	public void loginwithInvalidCredentials(String userName, String password) {
-		userNameField.sendKeys(userName);
-		passwordField.sendKeys(password);
-		loginButton.click();
 	}
 
 }

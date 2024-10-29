@@ -198,4 +198,9 @@ public class GeneralUtilities {
 		js.executeScript("window.scrollBy("+horizontal+","+vertical+")");
 	}
 	
+	public void clickJavaScriptExecutor(WebElement element, WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", element);
+	}
+	
 }

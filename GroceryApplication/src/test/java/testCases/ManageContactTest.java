@@ -19,40 +19,32 @@ public class ManageContactTest extends BaseClass{
   @Test(enabled=false)
   public void verifyManageContactPageheader() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  mcontactp = new ManageContactPage(driver);
-	  lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
-	  hp.clickManageContactLink();
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mcontactp=hp.clickManageContactLink();
 	  Assert.assertEquals(mcontactp.getHeader(),"Contact Us", Constant.mcontactp_getHeader);
   }
   
   @Test(enabled=false)
   public void verifyManageContactPageTableHeader() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  mcontactp = new ManageContactPage(driver);
-	  lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
-	  hp.clickManageContactLink();
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mcontactp=hp.clickManageContactLink();
 	  Assert.assertEquals(mcontactp.compareHeaderValues(),true,Constant.mcontactp_verifyManageContactPageTable);
   }
   
   @Test(enabled=false)
   public void verifyManageContactPageTableRow() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  mcontactp = new ManageContactPage(driver);
-	  lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
-	  hp.clickManageContactLink();
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mcontactp=hp.clickManageContactLink();
 	  Assert.assertEquals(mcontactp.checkContactRecord(),true,Constant.mcontactp_verifyContactRecords);
   }
   
   @Test
   public void verifyUpdateContact() throws IOException, InterruptedException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  mcontactp = new ManageContactPage(driver);
-	  lp.loginwithValidCredentials(loginData(1, 0), loginData(1, 1));
-	  hp.clickManageContactLink();
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mcontactp=hp.clickManageContactLink();
 	  mcontactp.clickEditButton();
 	  mcontactp.editPhoneNumber(7890);
 	  mcontactp.clickUpdateContact();

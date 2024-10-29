@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,13 +17,11 @@ public class SubCategoryTest extends BaseClass {
 	SubCategoryPage scp;
 
 	@Test(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class,enabled=false)
-	public void addNewSubCategory(String userName, String password) {
+	public void addNewSubCategory() throws IOException {
 
 		lp = new LoginPage(driver);
-		hp = new HomePage(driver);
-		scp = new SubCategoryPage(driver);
-		lp.loginwithValidCredentials(userName, password);
-		hp.clickSubCategoryLink();
+		hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+		scp=hp.clickSubCategoryLink();
 		scp.clickNewButton();
 		scp.selectCategory(2);
 		scp.entersubCategoryText();
@@ -49,13 +49,11 @@ public class SubCategoryTest extends BaseClass {
 	}
 	
 	@Test(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class)
-	public void deleteCategoryTableNewValue(String userName, String password) {
+	public void deleteCategoryTableNewValue() throws IOException {
 
 		lp = new LoginPage(driver);
-		hp = new HomePage(driver);
-		scp = new SubCategoryPage(driver);
-		lp.loginwithValidCredentials(userName, password);
-		hp.clickSubCategoryLink();
+		hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+		scp=hp.clickSubCategoryLink();
 		//need to make it per the added element. how can we find the added element between 2 tests?call based on fixed number and delete
 		String subCategory =scp.readTableElement(1,1);
 		String category =scp.readTableElement(1,2);

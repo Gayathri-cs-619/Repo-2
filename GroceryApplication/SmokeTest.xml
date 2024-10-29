@@ -5,18 +5,13 @@
 			<listener class-name="utilities.ExtenetReport"> </listener>
 			<listener class-name="utilities.RetryListener"> </listener>
 		</listeners>
+		<groups>
+			<run>
+				<!-- <include name="smoke"></include>-->
+				<exclude name="smoke"></exclude>
+			</run>
+		</groups>
 		<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class name="testCases.LoginPageTest"></class>
-			<class name="testCases.HomePageTest"></class>
-		</classes>
-	</test>
-	<test name="firefoxTest">
-		<listeners>
-			<listener class-name="utilities.ExtenetReport"> </listener>
-			<listener class-name="utilities.RetryListener"> </listener>
-		</listeners>
-		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<class name="testCases.LoginPageTest"></class>
 			<class name="testCases.HomePageTest"></class>

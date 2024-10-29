@@ -78,9 +78,10 @@ public class ManageContactPage {
 		}
 	
 	public void clickUpdateContact() throws InterruptedException {
-		genUtility.scrollFunction(driver, 300, 10000);
-		w.implicitWaitForSeconds(driver, 10);
+		genUtility.scrollFunction(driver, 0, 10000);
+		w.explicitWaitForWebElement(driver, updateButton);
 		updateButton.click();
+		//genUtility.clickJavaScriptExecutor(updateButton, driver);
 	}
 }
 

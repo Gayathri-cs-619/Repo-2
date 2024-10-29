@@ -15,4 +15,12 @@ public class Constant {
 	public static final String mcontactp_getHeader=":Contact page header doesn't match";
 	public static final String mcontactp_verifyManageContactPageTable=":Contact page table header values not as expected";
 	public static final String mcontactp_verifyContactRecords=":No contact records";
+	public static final String mnp_verifyTitleinNews=":News page title doesn't match";
+	public static final String mnp_verifyHyperlinksinNews=":News page hyperlinks are not as expected";
+	public static final String mnp_verifyButtonsCountinNews=":News page buttons count doesn't match";
+	public static final String mnp_verifyButtonsinNews=":News page buttons are not as expected";
+	public static final String mnp_verifyTableHeadersinNews=":News page table headers are not as expected";
+	public static final String mnp_verifyTableRecordsinNews=":News page table doesnt have any records";
+	public static final String mnp_verifyNewsEdit=":News Edit not successfull";
+	public static final String mnp_readsearchresults=":News search results not as expected";
 }

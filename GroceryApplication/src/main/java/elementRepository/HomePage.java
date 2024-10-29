@@ -27,33 +27,36 @@ public class HomePage {
 	WebElement manageCategoryLink;
 	@FindBy(xpath = "//li/a/p[text()='Manage Contact'][1]")
 	WebElement manageContactLink;
+	@FindBy (xpath="//li/a/p[text()='Manage News']")
+	WebElement manageNewsLink;
 
 	public String readHeading() {
 		return heading.getText();
 	}
 
-	public void clickSubCategoryLink() {
-
+	public SubCategoryPage clickSubCategoryLink() {
 		subCategoryLink.click();
-
+		return new SubCategoryPage(driver);
 	}
 
-	public void clickManageProductLink() {
-
+	public ManageProductPage clickManageProductLink() {
 		manageProductLink.click();
-
+		return new ManageProductPage(driver);
 	}
 
-	public void clickManageCategoryLink() {
-
+	public ManageCategoryPage clickManageCategoryLink() {
 		manageCategoryLink.click();
-
+		return new ManageCategoryPage(driver);
 	}
 
-	public void clickManageContactLink() {
-
+	public ManageContactPage clickManageContactLink() {
 		manageContactLink.click();
-
+		return new ManageContactPage(driver);
+	}
+	
+	public ManageNewsPage clickManageNewsLink() {
+		manageNewsLink.click();
+		return new ManageNewsPage(driver);
 	}
 
 }

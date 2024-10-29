@@ -69,18 +69,13 @@ public class ManageCategoryPage {
 	}
 
 	public void clickSave() throws InterruptedException {
-		w.implicitWaitForSeconds(driver, 3);
+		genUtility.scrollFunction(driver, 0, 10000);
+		w.explicitWaitForWebElement(driver, categoryUpdateButton);
 		categorySaveButton.click();
 	}
 
 	public String checkCategoryAddSuccess() {
 		return categoryAddSuccessAlertMessage.getText();
-	}
-
-	public void scrolltoLocation(int hori, int vert) throws InterruptedException {
-		// w.implicitWaitForSeconds(driver, 3);
-		genUtility.scrollFunction(driver, hori, vert);
-		w.explicitWaitForWebElementtobeVisible(driver,footer);
 	}
 
 	public void deleteSpecificCategory() throws InterruptedException {
@@ -123,6 +118,8 @@ public class ManageCategoryPage {
 	}
 	
 	public void clickUpdate() {
+		genUtility.scrollFunction(driver, 0, 10000);
+		w.explicitWaitForWebElement(driver, categoryUpdateButton);
 		categoryUpdateButton.click();
 	}
 	

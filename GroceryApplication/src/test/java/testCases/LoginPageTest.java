@@ -29,10 +29,7 @@ public class LoginPageTest extends BaseClass {
   @Test
   public void verifyLoginWithValidCredentials() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  String userName=loginData(1,0);
-	  String password=loginData(1,1);
-	  lp.loginwithValidCredentials(userName,password);
+	  hp=lp.performLogin(loginData(1,0),loginData(1,1));
 	  String actualHeading=hp.readHeading();
 	  String expectedHeading="7rmart supermarket";
 	  System.out.println(actualHeading);
@@ -43,13 +40,9 @@ public class LoginPageTest extends BaseClass {
   @Test(enabled=false)
   public void verifyLoginWithInvalidCredentials() throws IOException {
 	  lp=new LoginPage(driver);
-	  hp=new HomePage(driver);
-	  String userName=loginData(2,0);
-	  String password=loginData(2,1);
-	  lp.loginwithInvalidCredentials(userName,password);
+	  lp.performLogin(loginData(2,0),loginData(2,1));
 	  String actualMessage=lp.readInvalidMessage();
 	  String expectedMessage="Alert!";
-	  System.out.println(actualMessage);
 	  Assert.assertEquals(actualMessage, expectedMessage,Constant.lp_verifyLoginWithInValidCredentials);
   }
   
