@@ -70,8 +70,9 @@ public class ManageCategoryPage {
 
 	public void clickSave() throws InterruptedException {
 		genUtility.scrollFunction(driver, 0, 10000);
-		w.explicitWaitForWebElement(driver, categoryUpdateButton);
-		categorySaveButton.click();
+		w.explicitWaitForWebElement(driver, categorySaveButton);
+		genUtility.clickJavaScriptExecutor(categorySaveButton, driver);
+		//categorySaveButton.click();
 	}
 
 	public String checkCategoryAddSuccess() {
@@ -120,7 +121,8 @@ public class ManageCategoryPage {
 	public void clickUpdate() {
 		genUtility.scrollFunction(driver, 0, 10000);
 		w.explicitWaitForWebElement(driver, categoryUpdateButton);
-		categoryUpdateButton.click();
+		genUtility.clickJavaScriptExecutor(categoryUpdateButton, driver);
+		//categoryUpdateButton.click();
 	}
 	
 	public boolean checkForUpdateSuccessMessage() {

@@ -60,7 +60,6 @@ public class ManageCategoryTest extends BaseClass {
 		mcp.selectGroup();
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\uploadFiles\\PIC.jpg"	;
 		mcp.uploadFile(filePath);
-		//mcp.scrolltoLocation(334,10000);
 		mcp.clickSave();
 		String alertActual = mcp.checkCategoryAddSuccess();
 		String alertExpected = "Category Created Successfully";

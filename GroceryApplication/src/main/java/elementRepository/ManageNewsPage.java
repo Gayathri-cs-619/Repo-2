@@ -42,7 +42,7 @@ public class ManageNewsPage {
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[2]/a[1]")
 	WebElement newstableEditBtn;	
 	@FindBy(id="news")
-	WebElement newsTextBoxinEdit;	
+	WebElement newsTextBoxinEditandAdd;	
 	@FindBy(name="update")
 	WebElement updateBtn;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
@@ -51,6 +51,10 @@ public class ManageNewsPage {
 	WebElement newsTextBoxinSearch;
 	@FindBy(name="Search")
 	WebElement searchbtn2;
+	@FindBy(name="create")
+	WebElement saveBtn;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	WebElement newsAddSuccessAlertMessage;
 
 	public String verifyTitleinNews() {
 		return newsTitle.getText();
@@ -124,11 +128,11 @@ public class ManageNewsPage {
 		newstableEditBtn.click();
 	}
 	
-	public void EditNews() {
-		String currentNews=newsTextBoxinEdit.getText();
+	public void editNews() {
+		String currentNews=newsTextBoxinEditandAdd.getText();
 		String editedNews=currentNews.concat("-Edited");
-		newsTextBoxinEdit.clear();
-		genUtility.sendKeyFunctionforString(newsTextBoxinEdit,editedNews);
+		newsTextBoxinEditandAdd.clear();
+		genUtility.sendKeyFunctionforString(newsTextBoxinEditandAdd,editedNews);
 		updateBtn.click();
 	}
 	
@@ -150,25 +154,36 @@ public class ManageNewsPage {
 	
 	public int readsearchresults()	{
 		int flag = 0;
-		System.out.println(newstableCol1.size());
-		System.out.println(newstableCol1.get(0).getText());
-		System.out.println(newstableCol1.get(1).getText());
 		for (int i=0;i<newstableCol1.size();i++)
 		{
 			
-			if(newstableCol1.get(i).getText().equalsIgnoreCase("test")) {
-				System.out.println(newstableCol1.get(i).getText());
-				System.out.println("Match found");
+			if(newstableCol1.get(i).getText().toLowerCase().contains("test".toLowerCase())) {
+				continue;
 			}
 			else {		
-				System.out.println(newstableCol1.get(i).getText());
-				System.out.println("Match Not found");
 				flag=1;
 				break;
 			}
 			
 		}
 		return flag;
+	}
+
+	public void clickNewNews() {
+		newbtninNews.click();
+		
+	}
+	
+	public void addNews(String news) {
+		genUtility.sendKeyFunctionforString(newsTextBoxinEditandAdd,news);
+		saveBtn.click();
+	}
+	
+	public boolean checkForAddSuccessMessage() {
+		String alertActual = newsAddSuccessAlertMessage.getText();
+		String alertExpected = "News Created Successfully";
+		boolean value = alertActual.contains(alertExpected);
+		return value;
 	}
 
 }

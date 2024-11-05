@@ -15,7 +15,7 @@ public class ManageNewsTest extends BaseClass{
 	LoginPage lp;
 	HomePage hp;
 	ManageNewsPage mnp;
-  @Test(enabled=false)
+  @Test
   public void verifyLaunchofManageNewsPage() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
@@ -29,13 +29,23 @@ public class ManageNewsTest extends BaseClass{
 	  //try verifying all elements of the page in completeness
   }
   
-  @Test(enabled=false)
+  @Test
+  public void verifyAddfNews() throws IOException {
+	  lp=new LoginPage(driver);
+	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
+	  mnp=hp.clickManageNewsLink();
+	  mnp.clickNewNews();
+	  mnp.addNews("This is a new news");
+	  Assert.assertEquals(mnp.checkForAddSuccessMessage(),true,Constant.mnp_verifyAddNews);
+  }
+  
+  @Test
   public void verifyEditofNews() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
 	  mnp=hp.clickManageNewsLink();
 	  mnp.clickEditNews();
-	  mnp.EditNews();
+	  mnp.editNews();
 	  Assert.assertEquals(mnp.checkForUpdateSuccessMessage(),true,Constant.mnp_verifyNewsEdit);
   }
   

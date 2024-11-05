@@ -21,6 +21,7 @@ public class Constant {
 	public static final String mnp_verifyButtonsinNews=":News page buttons are not as expected";
 	public static final String mnp_verifyTableHeadersinNews=":News page table headers are not as expected";
 	public static final String mnp_verifyTableRecordsinNews=":News page table doesnt have any records";
-	public static final String mnp_verifyNewsEdit=":News Edit not successfull";
+	public static final String mnp_verifyNewsEdit=":News Edit not successful";
 	public static final String mnp_readsearchresults=":News search results not as expected";
+	public static final String mnp_verifyAddNews=":News Add not successful";
 }

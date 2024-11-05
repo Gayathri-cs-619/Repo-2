@@ -6,7 +6,7 @@
 	</listeners>
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testCases.ManageCategoryTest"></class>
+			<class name="testCases.ManageNewsTest"></class>
 		</classes>
 	</test>
 </suite>
