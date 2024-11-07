@@ -1,5 +1,6 @@
 package elementRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -80,18 +81,16 @@ public class ManageNewsPage {
 	}
 
 	public boolean verifyTableHeadersinNews() {
-		List<String> newstableheaderactualitems = null;
-		for (int i=1;i<=newstableheaderelements.size();i++)
-		{
-			newstableheaderactualitems.add(newstableheaderelements.get(i).getText());
-		}
-		List<String> newstableheaderexpecteditems  = null;
+		List<String> newstableheaderactualitems =new ArrayList();
+		List<String> newstableheaderexpecteditems  =new ArrayList();
 		newstableheaderexpecteditems.add("News");
 		newstableheaderexpecteditems.add("Action");
-		if(newstableheaderactualitems.contains(newstableheaderexpecteditems))
-			return true;
-		else
-			return false;
+		for (int i=0;i<newstableheaderelements.size();i++)
+		{
+			newstableheaderactualitems.add(newstableheaderelements.get(i).getText());
+		}		
+		boolean headerComparisonResult=newstableheaderactualitems.containsAll(newstableheaderexpecteditems);
+		return headerComparisonResult;	
 	}
 
 	public boolean verifyTableRecordsinNews() {

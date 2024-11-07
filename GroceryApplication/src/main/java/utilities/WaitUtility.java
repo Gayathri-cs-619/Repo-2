@@ -17,14 +17,6 @@ public class WaitUtility {
 		Thread.sleep(timeinSeconds);
 	}
 
-	public void implicitWaitForSeconds(WebDriver driver, int seconds) throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
-	}
-
-	public void implicitWaitForMilliSeconds(WebDriver driver, int milliseconds) throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(milliseconds));
-	}
-
 	public void explicitWaitForAlert(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.alertIsPresent());

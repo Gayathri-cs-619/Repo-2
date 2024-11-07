@@ -24,7 +24,7 @@ public class ManageCategoryTest extends BaseClass {
 	HomePage hp;
 	ManageCategoryPage mcp;
 
-	@Test(enabled=false)
+	@Test
 	public void addNewCategory() throws IOException, InterruptedException {
 		lp = new LoginPage(driver);
 		hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
@@ -34,9 +34,9 @@ public class ManageCategoryTest extends BaseClass {
 		mcp.selectGroup();
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\uploadFiles\\PIC.jpg"	;
 		mcp.uploadFile(filePath);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		//mcp.scrolltoLocation(334,10000);
-		Thread.sleep(2000);//this step is key to scroll success
+		//Thread.sleep(2000);//this step is key to scroll success
 		mcp.clickSave();
 		String alertActual = mcp.checkCategoryAddSuccess();
 		String alertExpected = "Category Created Successfully";

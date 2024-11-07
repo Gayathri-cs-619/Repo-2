@@ -33,8 +33,7 @@ public class LoginPageTest extends BaseClass {
 	  String actualHeading=hp.readHeading();
 	  String expectedHeading="7rmart supermarket";
 	  System.out.println(actualHeading);
-	  Assert.assertEquals(actualHeading, expectedHeading,Constant.lp_verifyLoginWithValidCredentials);
-	 
+	  Assert.assertEquals(actualHeading, expectedHeading,Constant.lp_verifyLoginWithValidCredentials);	 
   }
   
   @Test(enabled=false)

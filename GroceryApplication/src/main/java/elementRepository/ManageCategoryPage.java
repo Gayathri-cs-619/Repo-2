@@ -84,7 +84,7 @@ public class ManageCategoryPage {
 		for (int i = 0; i < categoryTableCol1.size(); i++) {
 
 			if (categoryTableCol1.get(i).getText().contains("NewCategory")) {
-				w.implicitWaitForSeconds(driver, 3);
+				w.explicitWaitForWebElement(driver, categoryTableDeleteButton.get(i));
 				categoryTableDeleteButton.get(i).click();
 				genUtility.alertAccept(driver);
 
@@ -105,7 +105,7 @@ public class ManageCategoryPage {
 		for (int i = 0; i < categoryTableCol1.size(); i++) {
 
 			if (categoryTableCol1.get(i).getText().contains("NewCategory")) {
-				w.implicitWaitForSeconds(driver, 3);
+				w.explicitWaitForWebElement(driver, categoryTableEditButton.get(i));
 				categoryTableEditButton.get(i).click();
 				break;
 			}

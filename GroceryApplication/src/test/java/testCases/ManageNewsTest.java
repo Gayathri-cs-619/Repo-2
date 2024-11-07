@@ -24,9 +24,8 @@ public class ManageNewsTest extends BaseClass{
 	  Assert.assertEquals(mnp.verifyHyperlinksinNews(),true,Constant.mnp_verifyHyperlinksinNews);
 	  Assert.assertEquals(mnp.verifyButtonsCountinNews(),3,Constant.mnp_verifyButtonsCountinNews);
 	  Assert.assertEquals(mnp.verifyButtonsinNews(),true,Constant.mnp_verifyButtonsinNews);
-	 // Assert.assertEquals(mnp.verifyTableHeadersinNews(),true,Constant.mnp_verifyTableHeadersinNews);//fails
+	  Assert.assertEquals(mnp.verifyTableHeadersinNews(),true,Constant.mnp_verifyTableHeadersinNews);
 	  Assert.assertEquals(mnp.verifyTableRecordsinNews(),true,Constant.mnp_verifyTableRecordsinNews);
-	  //try verifying all elements of the page in completeness
   }
   
   @Test
