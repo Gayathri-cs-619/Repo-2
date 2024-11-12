@@ -16,7 +16,7 @@ public class ManageContactTest extends BaseClass{
 	LoginPage lp;
 	HomePage hp;
 	ManageContactPage mcontactp;
-  @Test(enabled=false)
+  @Test
   public void verifyManageContactPageheader() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
@@ -24,7 +24,7 @@ public class ManageContactTest extends BaseClass{
 	  Assert.assertEquals(mcontactp.getHeader(),"Contact Us", Constant.mcontactp_getHeader);
   }
   
-  @Test(enabled=false)
+  @Test
   public void verifyManageContactPageTableHeader() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));
@@ -32,7 +32,7 @@ public class ManageContactTest extends BaseClass{
 	  Assert.assertEquals(mcontactp.compareHeaderValues(),true,Constant.mcontactp_verifyManageContactPageTable);
   }
   
-  @Test(enabled=false)
+  @Test
   public void verifyManageContactPageTableRow() throws IOException {
 	  lp=new LoginPage(driver);
 	  hp=lp.performLogin(loginData(1, 0), loginData(1, 1));

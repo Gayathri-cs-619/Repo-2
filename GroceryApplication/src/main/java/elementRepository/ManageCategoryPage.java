@@ -70,7 +70,7 @@ public class ManageCategoryPage {
 
 	public void clickSave() throws InterruptedException {
 		genUtility.scrollFunction(driver, 0, 10000);
-		w.explicitWaitForWebElement(driver, categorySaveButton);
+		w.waitForWebElementtobeClickable(driver, categorySaveButton);
 		genUtility.clickJavaScriptExecutor(categorySaveButton, driver);
 		//categorySaveButton.click();
 	}
@@ -84,7 +84,7 @@ public class ManageCategoryPage {
 		for (int i = 0; i < categoryTableCol1.size(); i++) {
 
 			if (categoryTableCol1.get(i).getText().contains("NewCategory")) {
-				w.explicitWaitForWebElement(driver, categoryTableDeleteButton.get(i));
+				w.waitForWebElementtobeClickable(driver, categoryTableDeleteButton.get(i));
 				categoryTableDeleteButton.get(i).click();
 				genUtility.alertAccept(driver);
 
@@ -105,7 +105,7 @@ public class ManageCategoryPage {
 		for (int i = 0; i < categoryTableCol1.size(); i++) {
 
 			if (categoryTableCol1.get(i).getText().contains("NewCategory")) {
-				w.explicitWaitForWebElement(driver, categoryTableEditButton.get(i));
+				w.waitForWebElementtobeClickable(driver, categoryTableEditButton.get(i));
 				categoryTableEditButton.get(i).click();
 				break;
 			}
@@ -120,7 +120,7 @@ public class ManageCategoryPage {
 	
 	public void clickUpdate() {
 		genUtility.scrollFunction(driver, 0, 10000);
-		w.explicitWaitForWebElement(driver, categoryUpdateButton);
+		w.waitForWebElementtobeClickable(driver, categoryUpdateButton);
 		genUtility.clickJavaScriptExecutor(categoryUpdateButton, driver);
 		//categoryUpdateButton.click();
 	}

@@ -17,22 +17,22 @@ public class WaitUtility {
 		Thread.sleep(timeinSeconds);
 	}
 
-	public void explicitWaitForAlert(WebDriver driver) {
+	public void waitForAlerttobePresent(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
 	
-	public void explicitWaitForWebElement(WebDriver driver,WebElement element) {
+	public void waitForWebElementtobeVisible(WebDriver driver,WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
-	public void explicitWaitForWebElementtobeVisible(WebDriver driver,WebElement element) {
+	public void waitForWebElementtobeClickable(WebDriver driver,WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public void explicitWaitForWebElementWithAttribute(WebDriver driver, WebElement element, String attribute,
+	public void waitForWebElementWithAttribute(WebDriver driver, WebElement element, String attribute,
 			String attributeValue) {
 
 		WebDriverWait expWait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -40,18 +40,14 @@ public class WaitUtility {
 
 	}
 
-	public void fluentWaitForWebElement(WebDriver driver, WebElement element, String attribute, String attributeValue) {
+	public void waitForWebElementFw(WebDriver driver, WebElement element, String attribute, String attributeValue) {
 		Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 		fluentWait.until(ExpectedConditions.attributeToBe(element, attribute, attributeValue));
 	}
 
-	public void implicitWaitForAlertWithText(WebDriver driver, WebElement element, String attribute,
+	public void waitForAlertWithText(WebDriver driver, WebElement element, String attribute,
 			String attributeValue) {
-		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));// wait for specified time before throwing
-																			// exception
-
-		// explicit wait
 		WebDriverWait expWait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		expWait.until(ExpectedConditions.alertIsPresent());
 		expWait.until(ExpectedConditions.textToBePresentInElement(element, attribute));

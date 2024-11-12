@@ -16,7 +16,7 @@ public class SubCategoryTest extends BaseClass {
 	HomePage hp;
 	SubCategoryPage scp;
 
-	@Test(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class,enabled=false)
+	@Test//(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class,enabled=false)
 	public void addNewSubCategory() throws IOException {
 
 		lp = new LoginPage(driver);
@@ -34,21 +34,11 @@ public class SubCategoryTest extends BaseClass {
 		//below code is to cleanup/delete the data entered in this test run
 		if (scp.findCategoryTableNewValue()==true)
 		{
-			String deleteAlertText=scp.deleteAddedSubCategory();
-			if (deleteAlertText.contains("Sub Category Deleted Successfully"))
-			{
-				System.out.println("Delete success");
-			}
-			else
-			{
-				System.out.println("Delete failure");
-			}
-		}
-		
-		
+			scp.deleteAddedSubCategory();
+		}		
 	}
 	
-	@Test(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class)
+	@Test//(dataProvider = "data-provider-1", dataProviderClass = LoginPageTest.class)
 	public void deleteCategoryTableNewValue() throws IOException {
 
 		lp = new LoginPage(driver);

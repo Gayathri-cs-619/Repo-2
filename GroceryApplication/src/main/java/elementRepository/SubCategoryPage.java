@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
+import utilities.FakerUtility;
 import utilities.GeneralUtilities;
 
 public class SubCategoryPage {
 	WebDriver driver;
 	GeneralUtilities genUtility = new GeneralUtilities();
+	FakerUtility fakerU= new FakerUtility();
 
 	String subCategoryValue;
 	
@@ -43,7 +44,6 @@ public class SubCategoryPage {
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr/td[1]")
 	List<WebElement> categoryTableCol1Values;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr/td")
-	public
 	List<WebElement> categoryTableElements;
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr/td[5]/a[2]")
 	List<WebElement> categoryDeleteButtons;
@@ -93,7 +93,7 @@ public class SubCategoryPage {
 	}
 
 	public void entersubCategoryText() {
-		String subCategoryValue="678996"+genUtility.randon(1000);
+		String subCategoryValue="678996"+fakerU.generateRandomNumber();
 		this.subCategoryValue=subCategoryValue;
 		genUtility.sendKeyFunctionforString(subCategoryText, subCategoryValue);
 		
@@ -114,10 +114,6 @@ public class SubCategoryPage {
 		} else {
 			return false;
 		}
-
-		/*
-		 * Alert! Sub Category already exists. Alert! Sub Category Created Successfully
-		 */
 	}
 
 	public boolean findCategoryTableNewValue() {
@@ -151,7 +147,7 @@ public class SubCategoryPage {
 		return tableCelleach.getText();
 	}
 	
-	public String deleteAddedSubCategory() {
+	public void deleteAddedSubCategory() {
 		String deleteAlertText="null";
 
 		for (int k=0;k<categoryTableCol1Values.size();k++)
@@ -164,8 +160,6 @@ public class SubCategoryPage {
 					}
 			
 		}
-		deleteAlertText=subCategoryDeleteSuccessAlert.getText();
-		return deleteAlertText;
 	}
 	
 	public String deleteSpecificSubCategory(String subCategory) {
